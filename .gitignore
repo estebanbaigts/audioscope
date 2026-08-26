@@ -1,0 +1,52 @@
+# ─────────────────────────────────────────────────────────────
+# AudioScope — .gitignore
+# ─────────────────────────────────────────────────────────────
+
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+build/
+.vite/
+*.local
+
+# Vite atomic-write timestamps
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+secrets.json
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Coverage
+coverage/
+
+# Deployment
+.vercel/
+.netlify/

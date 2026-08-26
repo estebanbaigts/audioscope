@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --gutter: clamp(1.5rem, 4vw, 3rem);
+}
+
+html { scroll-behavior: smooth; }
+html, body, #root { height: 100%; }
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, system-ui, sans-serif;
+  background: #0e0a06;
+  color: #f4ece0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Display sizes use Platypi (wedge-serif) — applied globally so every
+   .text-display-lg / -md / -sm picks it up without touching pages. */
+.text-display-lg,
+.text-display-md,
+.text-display-sm {
+  font-family: 'Platypi', 'Times New Roman', Georgia, serif;
+  font-feature-settings: 'kern', 'liga', 'dlig';
+}
+
+::selection {
+  background: #f4ece0;
+  color: #0e0a06;
+}
+
+.text-balance { text-wrap: balance; }
+.text-pretty  { text-wrap: pretty; }
+
+/* ─────────── Editorial paper grain ─────────── */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.7'/></svg>");
+}
+.grain-strong::after { opacity: 0.12; }
+
+/* ─────────── Warm halo behind dark hero ─────────── */
+.warm-halo {
+  position: absolute;
+  inset: -10%;
+  pointer-events: none;
+  filter: blur(80px);
+  opacity: 0.55;
+  background:
+    radial-gradient(40% 60% at 25% 30%, rgba(168, 122, 79, 0.55) 0%, transparent 60%),
+    radial-gradient(45% 55% at 80% 70%, rgba(216, 195, 154, 0.4) 0%, transparent 60%),
+    radial-gradient(50% 50% at 50% 100%, rgba(107, 66, 38, 0.45) 0%, transparent 60%);
+}
+
+/* ─────────── Text-fill effect (QDS-style) ─────────── */
+/* The visible "text" sits on top of a fill that grows from below on hover. */
+.text-fill {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1;
+}
+.text-fill__text {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  transition: color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.text-fill__filler {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: inline-block;
+  overflow: hidden;
+  pointer-events: none;
+  color: var(--fill, #0e0a06);
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.text-fill:hover .text-fill__filler,
+.text-fill[data-active="true"] .text-fill__filler {
+  clip-path: inset(0 0 0 0);
+}
+
+/* ─────────── No-scroll lock when burger menu open ─────────── */
+.scroll-lock { overflow: hidden; }
+
+/* Scrollbar hide */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+/* Slow vertical drift used on hero ambient orbs */
+@keyframes drift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(2%, -2%, 0) scale(1.04); }
+  100% { transform: translate3d(-2%, 2%, 0) scale(1.07); }
+}
+.drift { animation: drift 22s ease-in-out infinite alternate; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
