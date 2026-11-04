@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import TextFill from '../components/TextFill.jsx'
 import TiltCard from '../components/TiltCard.jsx'
 
@@ -42,6 +41,8 @@ export default function Infos() {
             custom={1}
             className="mt-10 grid gap-16 md:grid-cols-2"
           >
+            <ContactProfiles />
+
             {/* Contact */}
             <div>
               <span className="text-[10px] uppercase tracking-editorial text-cream/55"></span>
@@ -60,7 +61,7 @@ export default function Infos() {
                 </ContactRow>
                 <ContactRow label="Téléphone">
                   <a
-                    href="tel:+33000000000"
+                    href="tel:+33627776043"
                     className="group inline-block text-cream hover:text-cream/75"
                   >
                     +33 (0)6 27 77 60 43
@@ -173,7 +174,7 @@ export default function Infos() {
             transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
             className="md:col-span-5"
           >
-            <GearLinkCard />
+            <GearPdfCard />
           </motion.div>
         </div>
       </section>      
@@ -193,6 +194,87 @@ function ContactBlock() {
       className="lg:col-span-6"
     >
     </motion.div>
+  )
+}
+
+function ContactProfiles() {
+  const profiles = [
+    {
+      name: 'Guillaume André',
+      description: 'Ingénieur du son, fondateur du studio Audioscope · prises de son et réalisation',
+      photo: null,
+      contacts: [
+        { label: 'Email', value: 'guillaume.audioscope@gmail.com', href: 'mailto:guillaume.audioscope@gmail.com' },
+        { label: 'Téléphone', value: '06 27 77 60 43', href: 'tel:+33627776043' },
+        { label: 'Instagram', value: '@guillaume.audioscope' },
+      ],
+    },
+    {
+      name: 'Artus Galud',
+      description: 'Ingénieur du son · prises de son et mixage',
+      photo: "./images/artus.jpg",
+      contacts: [
+        { label: 'Email', value: 'artus@galud.com', href: 'mailto:artus@galud.com' },
+        { label: 'Téléphone', value: '06 43 43 96 42', href: 'tel:+33643439642' },
+        { label: 'Instagram', value: '@artus_gld' },
+      ],
+    },
+  ]
+
+  return (
+    <section className="md:col-span-2">
+      <h2 className="text-display-sm font-bold text-balance">
+        Vos contacts
+      </h2>
+      <div className="mt-8 grid border-t border-cream/20 md:grid-cols-2">
+        {profiles.map((profile) => (
+          <article
+            key={profile.name}
+            className="border-b border-cream/20 py-8 md:px-8 md:first:pl-0 md:last:border-l md:last:pl-8"
+          >
+            {profile.photo ? (
+              <img
+                src={profile.photo}
+                alt={`Portrait de ${profile.name}`}
+                className="mb-6 aspect-[4/3] w-full max-w-[26rem] object-cover"
+              />
+            ) : (
+              <div
+                className="mb-6 flex aspect-[4/3] w-full max-w-[26rem] items-end border border-cream/20 bg-cream/5 p-4"
+                role="img"
+                aria-label={`Emplacement pour le portrait de ${profile.name}`}
+              >
+                <span className="text-[10px] uppercase tracking-editorial text-cream/45">
+                  Portrait à venir
+                </span>
+              </div>
+            )}
+            <h3 className="text-3xl font-bold tracking-tight2 text-cream">
+              {profile.name}
+            </h3>
+            <p className="mt-2 max-w-sm text-sm leading-relaxed text-cream/60">
+              {profile.description}
+            </p>
+            {profile.contacts.length ? (
+              <dl className="mt-8 space-y-5">
+                {profile.contacts.map((contact) => (
+                  <div key={contact.label}>
+                    <dt className="text-[10px] uppercase tracking-editorial text-cream/50">{contact.label}</dt>
+                    <dd className="mt-1 text-base text-cream">
+                      {contact.href ? (
+                        <a href={contact.href} className="hover:text-cream/75">{contact.value}</a>
+                      ) : contact.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            ) : (
+              <p className="mt-8 text-sm text-cream/55">Coordonnées à venir.</p>
+            )}
+          </article>
+        ))}
+      </div>
+    </section>
   )
 }
 
@@ -218,11 +300,13 @@ function ContactRow({ label, children }) {
   )
 }
 
-function GearLinkCard() {
+function GearPdfCard() {
   return (
     <TiltCard maxTilt={8}>
-      <Link
-        to="/materiel"
+      <a
+        href="/fichetech.pdf"
+        target="_blank"
+        rel="noreferrer"
         className="group relative flex items-center gap-6 overflow-hidden rounded-2xl border border-coal/20 bg-cream p-6 transition-colors duration-500 ease-smooth hover:border-coal/50 sm:p-8"
       >
         {/* Mini rack — écho du hero de la page matériel */}
@@ -244,10 +328,10 @@ function GearLinkCard() {
 
         <div className="flex-1" style={{ transform: 'translateZ(24px)' }}>
           <span className="block text-[10px] uppercase tracking-editorial text-coffee/55">
-            Explorer
+            Consulter
           </span>
           <span className="mt-1 block text-xl font-bold tracking-tight2 text-coal sm:text-2xl">
-            Le matériel du studio
+            La fiche technique
           </span>
           <span className="mt-1 block text-xs text-coffee/65">
             Micros · préamplis · outboard · backline
@@ -257,7 +341,7 @@ function GearLinkCard() {
         <span className="text-2xl text-coffee/60 transition group-hover:translate-x-0.5 group-hover:text-coal">
           →
         </span>
-      </Link>
+      </a>
     </TiltCard>
   )
 }

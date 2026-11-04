@@ -1,8 +1,6 @@
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import Logo from '../components/Logo.jsx'
 import StudioImage from '../components/StudioImage.jsx'
-import TextFill from '../components/TextFill.jsx'
 import { scenes } from '../data/studio.js'
 
 const fadeUp = {
@@ -84,9 +82,6 @@ export default function Home() {
             className="mb-14 grid gap-6 md:grid-cols-12 md:items-end"
           >
             <div className="md:col-span-7">
-              <span className="text-[10px] uppercase tracking-editorial text-coffee/55">
-                §01 — Visite
-              </span>
               <h2 className="mt-4 text-display-md font-bold text-balance text-coal">
                 Audioscope
                 <br/>
@@ -95,7 +90,7 @@ export default function Home() {
             </div>
           </motion.div>
 
-          <ul className="grid grid-cols-1 gap-4 sm:grid-cols-6 sm:gap-6">
+          <ul className="grid grid-cols-1 gap-4 sm:grid-cols-6 sm:auto-rows-[clamp(7rem,10vw,8.5rem)] sm:gap-6">
             {scenes.map((scene, i) => (
               <ImageTile key={scene.id} scene={scene} index={i} />
             ))}
@@ -108,13 +103,15 @@ export default function Home() {
 }
 
 function ImageTile({ scene, index }) {
-  // Layout map — 5 tiles arranged into a 6-col grid for an editorial feel.
+  // Desktop: every grid cell is deliberately occupied — no empty blocks.
   const span = {
-    1: 'sm:col-span-4 sm:row-span-2',
+    1: 'sm:col-span-4 sm:row-span-3',
     2: 'sm:col-span-2 sm:row-span-2',
-    3: 'sm:col-span-2',
-    4: 'sm:col-span-2',
-    5: 'sm:col-span-2',
+    3: 'sm:col-span-2 sm:row-span-2',
+    4: 'sm:col-span-4 sm:row-span-2',
+    5: 'sm:col-span-2 sm:row-span-2',
+    6: 'sm:col-span-2 sm:row-span-2',
+    7: 'sm:col-span-2 sm:row-span-3',
   }
   const aspect = {
     wide: 'aspect-[16/10]',
@@ -122,21 +119,13 @@ function ImageTile({ scene, index }) {
     square: 'aspect-square',
   }[scene.layout]
 
-  const captions = {
-    1: ['Régie'],
-    2: ['Live room'],
-    3: ['Synthés'],
-    4: ['Cabine voix'],
-    5: ['Bande'],
-  }[scene.id]
-
   return (
     <motion.li
       initial={{ opacity: 0, y: 36, filter: 'blur(6px)' }}
       whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1], delay: index * 0.08 }}
-      className={`group relative overflow-hidden bg-coffee ${span[scene.id]} ${aspect}`}
+      className={`group relative overflow-hidden bg-coffee ${span[scene.id]} ${aspect} sm:aspect-auto`}
     >
       <motion.div
         whileHover={{ scale: 1.05 }}
@@ -154,10 +143,10 @@ function ImageTile({ scene, index }) {
       {/* Caption — slides up on hover */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-2 bg-gradient-to-t from-coal/90 via-coal/40 to-transparent px-5 pb-4 pt-12 opacity-0 transition-all duration-500 ease-smooth group-hover:translate-y-0 group-hover:opacity-100">
         <span className="block text-[10px] uppercase tracking-editorial text-cream/70">
-          {captions[0]}
+          {scene.caption}
         </span>
         <span className="mt-1 block text-2xl font-bold tracking-tight2 text-cream">
-          {captions[1]}
+          {scene.title}
         </span>
       </div>
     </motion.li>

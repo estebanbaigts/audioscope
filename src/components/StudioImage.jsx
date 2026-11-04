@@ -1,54 +1,12 @@
-// Studio scene placeholder. Renders one of 5 distinct "photos" via SVG.
-// Each scene has warm lighting + silhouettes to suggest the actual room.
-// Replace with <img src={...} /> when real photos arrive.
-
-const scenes = {
-  'control-room': () => (
-    <img
-      src="/images/regie1.jpg"
-      alt="Control room studio AudioScope"
-      className="h-full w-full object-cover"
-    />
-  ),
-
-  'live-room': () => (
-    <img
-      src="/images/liveroom.jpg"
-      alt="Live room studio AudioScope"
-      className="h-full w-full object-cover object-center"
-    />
-  ),
-
-  'synths': () => (
-    <img
-      src="/images/rack.jpg"
-      alt="Synths studio AudioScope"
-      className="h-full w-full object-cover object-left"
-    />
-  ),
-
-  'vocal-booth': () => (
-    <img
-      src="/images/patio.jpg"
-      alt="Vocal booth AudioScope"
-      className="h-full w-full object-cover object-right"
-    />
-  ),
-
-  'tape': () => (
-    <img
-      src="/images/recorder.jpg"
-      alt="Analog gear AudioScope"
-      className="h-full w-full object-cover object-bottom"
-    />
-  ),
-}
-
 export default function StudioImage({ scene, className = '' }) {
-  const Render = scenes[scene.kind]
   return (
     <div className={`relative overflow-hidden ${className}`}>
-      {Render ? <Render /> : <div className="h-full w-full bg-coffee" />}
+      <img
+        src={scene.image}
+        alt={scene.title}
+        className="h-full w-full object-cover"
+        style={{ objectPosition: scene.position }}
+      />
       {/* Soft warm vignette + paper grain */}
       <div
         className="pointer-events-none absolute inset-0"

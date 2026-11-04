@@ -3,10 +3,9 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import Logo from './Logo.jsx'
 
-// Two routes only — Studio page contains contact + adresse + fiche technique.
+// Gear is kept in the codebase but not exposed while it is on standby.
 const menuItems = [
   { to: '/',         label: 'Le studio' },
-  { to: '/materiel', label: 'Le matériel' },
   { to: '/infos',    label: 'Informations' },
 ]
 

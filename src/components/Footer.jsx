@@ -9,7 +9,6 @@ export default function Footer() {
         </div>
         <ul className="flex items-center gap-6 text-xs uppercase tracking-editorial text-cream/60">
           <li><Link to="/" className="transition hover:text-cream">Le Studio</Link></li>
-          <li><Link to="/materiel" className="transition hover:text-cream">Le Matériel</Link></li>
           <li><Link to="/infos" className="transition hover:text-cream">Informations</Link></li>
         </ul>
       </div>
