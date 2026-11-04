@@ -123,11 +123,11 @@ function ImageTile({ scene, index }) {
   }[scene.layout]
 
   const captions = {
-    1: ['Lorem ipsum · dolor sit', 'Régie'],
-    2: ['Sit amet consectetur', 'Live room'],
-    3: ['Adipiscing elit sed', 'Synthés'],
-    4: ['Eiusmod tempor incididunt', 'Cabine voix'],
-    5: ['Ut labore et dolore', 'Bande'],
+    1: ['Régie'],
+    2: ['Live room'],
+    3: ['Synthés'],
+    4: ['Cabine voix'],
+    5: ['Bande'],
   }[scene.id]
 
   return (

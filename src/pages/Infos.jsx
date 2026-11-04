@@ -152,7 +152,7 @@ export default function Infos() {
               Fiche technique du studio <br/>
             </h2>
             <p className="mt-6 max-w-md text-base leading-relaxed text-coffee/75">
-              Microphones, préamplis, outboard et backline — la collection complète,
+              Microphones, préamplis, outboard et backline la collection complète,
               marque par marque.
             </p>
             <a
@@ -176,67 +176,7 @@ export default function Infos() {
             <GearLinkCard />
           </motion.div>
         </div>
-      </section>
-
-      {/* ───────────────── GEAR INDEX (editorial table) ───────────────── */}
-      <section className="relative bg-coal py-24 text-cream sm:py-32 hidden">
-        <div className="mx-auto max-w-7xl px-[var(--gutter)]">
-          <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="block text-[10px] uppercase tracking-editorial text-cream/55"
-          >
-            §03 — Aperçu
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.85 }}
-            className="mt-5 text-display-md font-bold text-balance"
-          >
-            Lorem ipsum<br/>
-            <em className="italic font-medium text-warm">dolor consectetur.</em>
-          </motion.h2>
-
-          <motion.ul
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: '-80px' }}
-            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.07 } } }}
-            className="mt-14 divide-y divide-cream/10 border-y border-cream/15"
-          >
-            {[
-              ['01', 'Console', 'Lorem ipsum 24 voies · sed do eiusmod tempor incididunt'],
-              ['02', 'Bandes', 'Studer A80 · 1/2", lorem ipsum dolor sit amet'],
-              ['03', 'Synthés', 'Consectetur adipiscing · OB-6, Juno-60, Prophet-5'],
-              ['04', 'Micros', 'U87 · C414 · SM7B · Royer R-121 · ut enim ad minim'],
-              ['05', 'Préamps', 'Neve 1073 · API 512c · UA 610 · veniam quis nostrud'],
-              ['06', 'Live room', '45 m² · acoustique traitée · sed do eiusmod tempor'],
-            ].map(([n, name, detail]) => (
-              <motion.li
-                key={n}
-                variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } } }}
-                className="group"
-              >
-                <div className="grid grid-cols-12 items-baseline gap-4 py-6 sm:py-7">
-                  <span className="col-span-2 text-[11px] uppercase tracking-editorial text-cream/45 sm:col-span-1">
-                    {n}
-                  </span>
-                  <span className="col-span-10 text-xl font-bold tracking-tight2 text-cream sm:col-span-3 sm:text-2xl">
-                    {name}
-                  </span>
-                  <span className="col-span-12 text-sm text-cream/65 sm:col-span-8">
-                    {detail}
-                  </span>
-                </div>
-              </motion.li>
-            ))}
-          </motion.ul>
-        </div>
-      </section>
+      </section>      
     </motion.div>
   )
 }
@@ -252,42 +192,6 @@ function ContactBlock() {
       transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
       className="lg:col-span-6"
     >
-      <span className="text-[10px] uppercase tracking-editorial text-cream">§01 — Contact</span>
-      <h2 className="mt-4 text-display-sm font-bold text-balance">
-        Lorem ipsum<br/>
-        <em className="italic font-medium text-cream">dolor amet.</em>
-      </h2>
-
-      <ul className="mt-10 space-y-6 text-cream">
-        <ContactRow label="Email">
-          <a
-            href="mailto:contact@audioscope.studio"
-            className="group inline-block"
-          >
-            <TextFill fill="#a87a4f" className="text-coal">contact@audioscope.studio</TextFill>
-          </a>
-        </ContactRow>
-        <ContactRow label="Téléphone">
-          <a
-            href="tel:+33000000000"
-            className="group inline-block"
-          >
-            <TextFill fill="#a87a4f" className="text-coal">+33 (0)0 00 00 00 00</TextFill>
-          </a>
-        </ContactRow>
-        <ContactRow label="Booking">
-          Lorem ipsum · réponse sous 48 h
-        </ContactRow>
-        <ContactRow label="Suivre">
-          <div className="flex flex-wrap gap-x-5 gap-y-2">
-            {['Instagram', 'Bandcamp', 'SoundCloud', 'Vimeo'].map((s) => (
-              <a key={s} href="#" className="group inline-block">
-                <TextFill fill="#a87a4f" className="text-coal">{s}</TextFill>
-              </a>
-            ))}
-          </div>
-        </ContactRow>
-      </ul>
     </motion.div>
   )
 }
@@ -301,60 +205,6 @@ function AddressBlock() {
       transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
       className="lg:col-span-6"
     >
-      <span className="text-[10px] uppercase tracking-editorial text-coffee/55">§01 — Adresse</span>
-      <h2 className="mt-4 text-display-sm font-bold text-balance">
-        Lorem ipsum<br/>
-        <em className="italic font-medium text-clay">in via.</em>
-      </h2>
-
-      <address className="not-italic mt-10 space-y-1 text-lg leading-relaxed text-coal">
-        <span className="block">AudioScope Studio</span>
-        <span className="block">Lorem ipsum 14, dolor sit</span>
-        <span className="block">75011 Paris · France</span>
-      </address>
-
-      <p className="mt-4 text-sm leading-relaxed text-coffee/70">
-        Métro Lorem ipsum · L3<br />
-        Consectetur adipiscing elit pour matériel volumineux.
-      </p>
-
-      {/* Stylised "map" placeholder */}
-      <div className="relative mt-10 aspect-[4/3] overflow-hidden border border-coal/15 bg-warm">
-        <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" className="h-full w-full">
-          <rect width="400" height="300" fill="#e8dcc6"/>
-          <g stroke="#a87a4f" strokeWidth="1.2" opacity="0.5">
-            <line x1="0" y1="80" x2="400" y2="80"/>
-            <line x1="0" y1="170" x2="400" y2="170"/>
-            <line x1="0" y1="240" x2="400" y2="240"/>
-            <line x1="100" y1="0" x2="100" y2="300"/>
-            <line x1="220" y1="0" x2="220" y2="300"/>
-            <line x1="320" y1="0" x2="320" y2="300"/>
-          </g>
-          <g stroke="#6b4226" strokeWidth="2.4" opacity="0.7" fill="none">
-            <path d="M -10 130 L 130 130 L 130 200 L 410 200" />
-            <path d="M 200 -10 L 200 100 L 280 100 L 280 310" />
-          </g>
-          <g transform="translate(200, 150)">
-            <circle r="38" fill="#3d2818" opacity="0.12"/>
-            <circle r="22" fill="#3d2818" opacity="0.18"/>
-            <path d="M 0 -16 a 12 12 0 1 1 0 0.01 z M 0 -4 L -7 12 L 7 12 Z" fill="#1a1410"/>
-            <circle cx="0" cy="-16" r="5" fill="#f4ece0"/>
-          </g>
-        </svg>
-        <div className="absolute bottom-3 left-3 inline-flex items-center gap-2 rounded-full bg-cream/90 px-3 py-1 text-[10px] uppercase tracking-editorial text-coffee/70 backdrop-blur">
-          AudioScope · 75011 Paris
-        </div>
-      </div>
-
-      <a
-        href="https://www.google.com/maps"
-        target="_blank"
-        rel="noreferrer"
-        className="group mt-6 inline-flex items-center gap-2 text-[11px] uppercase tracking-editorial text-coffee/70 hover:text-coal"
-      >
-        <TextFill fill="#a87a4f" className="text-coffee/85">Ouvrir dans Maps</TextFill>
-        <span>→</span>
-      </a>
     </motion.div>
   )
 }

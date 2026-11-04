@@ -84,7 +84,7 @@ export default function Gear() {
       <section className="relative bg-coal py-16 text-cream sm:py-20">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-[var(--gutter)] sm:flex-row sm:items-center">
           <p className="max-w-md text-sm leading-relaxed text-cream/65">
-            Une liste complète évolue en permanence — pour une version imprimable, la fiche technique reste disponible en PDF.
+            Une liste complète évolue en permanence pour une version imprimable, la fiche technique reste disponible en PDF.
           </p>
           <a
             href="/fichetech.pdf"
@@ -145,7 +145,7 @@ function Hero() {
             <em className="italic font-medium text-warm">du studio.</em>
           </h1>
           <p className="mt-8 max-w-md text-base leading-relaxed text-cream/70">
-            Microphones, préamplis, outboard et backline — la collection analogique
+            Microphones, préamplis, outboard et backline la collection analogique
             réunie salle par salle, à explorer plutôt qu'à imprimer.
           </p>
         </motion.div>
