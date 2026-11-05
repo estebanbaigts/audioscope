@@ -44,7 +44,7 @@ export default function Infos() {
             <ContactProfiles />
 
             {/* Contact */}
-            <div>
+            {/* <div>
               <span className="text-[10px] uppercase tracking-editorial text-cream/55"></span>
               <h2 className="mt-4 text-display-sm font-bold text-balance">
                 Contact<br/>
@@ -71,57 +71,97 @@ export default function Infos() {
                   <span className="text-cream/70">@guillaume.audioscope</span>
                 </ContactRow>
               </ul>
-            </div>
+            </div> */}
 
-            {/* Adresse */}
-            <div>
-              <span className="text-[10px] uppercase tracking-editorial text-cream/55"></span>
-              <h2 className="mt-4 text-display-sm font-bold text-balance">
-                Adresse<br/>
-              </h2>
+            <div className="border-t border-cream/20 pt-8 md:col-span-2 md:pt-10">
+              <div className="grid gap-8 md:grid-cols-12 md:items-center md:gap-10">
+                <div className="md:col-span-4">
+                  <span className="text-[10px] uppercase tracking-editorial text-cream/55">
+                    ◇ Nous trouver
+                  </span>
+                  <h2 className="mt-4 text-display-sm font-bold text-balance">
+                    Au cœur du 15<sup>e</sup>
+                  </h2>
+                  <address className="mt-6 not-italic text-base leading-relaxed text-cream/75">
+                    <span className="block font-medium text-cream">Audioscope Studio</span>
+                    <span className="block">85 rue Lecourbe</span>
+                    <span className="block">75015 Paris · France</span>
+                  </address>
 
-              <address className="not-italic mt-10 space-y-1 text-lg leading-relaxed text-cream">
-                <span className="block">Audioscope Studio</span>
-                <span className="block">85 rue Lecourbe</span>
-                <span className="block">75015 Paris · France</span>
-              </address>
+                  <div className="mt-6 border-t border-cream/15 pt-5">
+                    <span className="text-[10px] uppercase tracking-editorial text-cream/45">
+                      Accès métro
+                    </span>
+                    <div className="mt-3 flex gap-2" aria-label="Lignes de métro 6, 8 et 12">
+                      {['6', '8', '12'].map((line) => (
+                        <span
+                          key={line}
+                          className="flex h-8 min-w-8 items-center justify-center border border-cream/25 px-2 text-xs font-medium text-cream"
+                        >
+                          {line}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
 
-              <p className="mt-4 text-sm leading-relaxed text-cream/65">
-                Métro · L6 · L8 · L12<br />
-              </p>
-
-              {/* Stylised "map" placeholder — clickable link to Google Maps */}
-              <a
-                href="https://www.google.com/maps/place/85+Rue+Lecourbe,+75015+Paris/@48.8429195,2.3019618,17z/data=!3m1!4b1!4m6!3m5!1s0x47e6703bf3e74133:0x216967140a55364b!8m2!3d48.842916!4d2.3045367!16s%2Fg%2F11cnchvdmv?entry=ttu&g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D"
-                target="_blank"
-                rel="noreferrer"
-                className="relative mt-10 block aspect-[4/3] overflow-hidden border border-cream/15 bg-warm hover:opacity-90 transition-opacity"
-              >
-                <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" className="h-full w-full">
-                  <rect width="400" height="300" fill="#e8dcc6"/>
-                  <g stroke="#a87a4f" strokeWidth="1.2" opacity="0.5">
-                    <line x1="0" y1="80" x2="400" y2="80"/>
-                    <line x1="0" y1="170" x2="400" y2="170"/>
-                    <line x1="0" y1="240" x2="400" y2="240"/>
-                    <line x1="100" y1="0" x2="100" y2="300"/>
-                    <line x1="220" y1="0" x2="220" y2="300"/>
-                    <line x1="320" y1="0" x2="320" y2="300"/>
-                  </g>
-                  <g stroke="#6b4226" strokeWidth="2.4" opacity="0.7" fill="none">
-                    <path d="M -10 130 L 130 130 L 130 200 L 410 200" />
-                    <path d="M 200 -10 L 200 100 L 280 100 L 280 310" />
-                  </g>
-                  <g transform="translate(200, 150)">
-                    <circle r="38" fill="#3d2818" opacity="0.12"/>
-                    <circle r="22" fill="#3d2818" opacity="0.18"/>
-                    <path d="M 0 -16 a 12 12 0 1 1 0 0.01 z M 0 -4 L -7 12 L 7 12 Z" fill="#1a1410"/>
-                    <circle cx="0" cy="-16" r="5" fill="#f4ece0"/>
-                  </g>
-                </svg>
-                <div className="absolute bottom-3 left-3 inline-flex items-center gap-2 rounded-full bg-cream/90 px-3 py-1 text-[10px] uppercase tracking-editorial text-coffee/70 backdrop-blur">
-                  AudioScope · 75015 Paris
+                  <a
+                    href="https://www.google.com/maps/place/85+Rue+Lecourbe,+75015+Paris/@48.8429195,2.3019618,17z/data=!3m1!4b1!4m6!3m5!1s0x47e6703bf3e74133:0x216967140a55364b!8m2!3d48.842916!4d2.3045367!16s%2Fg%2F11cnchvdmv?entry=ttu&g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group mt-7 inline-flex items-center gap-3 border-b border-cream/40 pb-2 text-[10px] uppercase tracking-editorial text-cream transition-colors hover:border-cream hover:text-cream/70"
+                  >
+                    Ouvrir l’itinéraire
+                    <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">↗</span>
+                  </a>
                 </div>
-              </a>
+
+                <a
+                  href="https://www.google.com/maps/place/85+Rue+Lecourbe,+75015+Paris/@48.8429195,2.3019618,17z/data=!3m1!4b1!4m6!3m5!1s0x47e6703bf3e74133:0x216967140a55364b!8m2!3d48.842916!4d2.3045367!16s%2Fg%2F11cnchvdmv?entry=ttu&g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Voir l’emplacement d’Audioscope Studio sur Google Maps"
+                  className="group relative block aspect-[4/3] overflow-hidden bg-sand transition-opacity hover:opacity-90 md:col-span-8"
+                >
+                  <svg
+                    viewBox="0 0 800 520"
+                    preserveAspectRatio="xMidYMid slice"
+                    role="img"
+                    aria-label="Plan illustré du quartier autour du studio"
+                    className="h-full w-full"
+                  >
+                    <rect width="800" height="520" fill="#e8dcc6" />
+                    <g fill="#d7c6aa" opacity="0.72">
+                      <path d="M0 0h210v120H0zM250 0h170v120H250zM500 0h300v120H500zM0 180h210v120H0zM250 180h170v120H250zM500 180h300v120H500zM0 360h210v160H0zM250 360h170v160H250zM500 360h300v160H500z" />
+                    </g>
+                    <g fill="none" stroke="#f4ece0" strokeWidth="28">
+                      <path d="M0 150h800M0 330h800M230 0v520M460 0v520" />
+                    </g>
+                    <path
+                      d="M0 150h800"
+                      fill="none"
+                      stroke="#a87a4f"
+                      strokeWidth="7"
+                      strokeDasharray="12 12"
+                      opacity="0.75"
+                    />
+                    <g transform="translate(505 258)">
+                      <circle r="54" fill="#3d2818" opacity="0.12" />
+                      <circle r="34" fill="#3d2818" opacity="0.18" />
+                      <path d="M0-27a20 20 0 1 1 0 40L0 43-12 13a20 20 0 0 1 12-40Z" fill="#1a1410" />
+                      <circle cy="-7" r="7" fill="#f4ece0" />
+                    </g>
+                    <g fill="#6b4226" fontFamily="Helvetica, Arial, sans-serif" fontSize="13" letterSpacing="2">
+                      <text x="44" y="139">RUE LECOURBE</text>
+                      <text x="544" y="244">AUDIOSCOPE</text>
+                      <text x="545" y="267">STUDIO · PARIS 15</text>
+                    </g>
+                  </svg>
+                  <span className="absolute bottom-4 right-4 inline-flex items-center gap-2 bg-cream px-4 py-3 text-[10px] uppercase tracking-editorial text-coal transition-colors group-hover:bg-white">
+                    85 rue Lecourbe
+                    <span aria-hidden="true">↗</span>
+                  </span>
+                </a>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -202,7 +242,6 @@ function ContactProfiles() {
     {
       name: 'Guillaume André',
       description: 'Ingénieur du son, fondateur du studio Audioscope · prises de son et réalisation',
-      photo: null,
       contacts: [
         { label: 'Email', value: 'guillaume.audioscope@gmail.com', href: 'mailto:guillaume.audioscope@gmail.com' },
         { label: 'Téléphone', value: '06 27 77 60 43', href: 'tel:+33627776043' },
@@ -212,7 +251,6 @@ function ContactProfiles() {
     {
       name: 'Artus Galud',
       description: 'Ingénieur du son · prises de son et mixage',
-      photo: "./images/artus.jpg",
       contacts: [
         { label: 'Email', value: 'artus@galud.com', href: 'mailto:artus@galud.com' },
         { label: 'Téléphone', value: '06 43 43 96 42', href: 'tel:+33643439642' },
@@ -223,6 +261,11 @@ function ContactProfiles() {
 
   return (
     <section className="md:col-span-2">
+      <img
+        src="/images/studio.jpg"
+        alt="Vue du studio Audioscope"
+        className="mb-10 aspect-[16/7] w-full object-cover"
+      />
       <h2 className="text-display-sm font-bold text-balance">
         Vos contacts
       </h2>
@@ -232,23 +275,6 @@ function ContactProfiles() {
             key={profile.name}
             className="border-b border-cream/20 py-8 md:px-8 md:first:pl-0 md:last:border-l md:last:pl-8"
           >
-            {profile.photo ? (
-              <img
-                src={profile.photo}
-                alt={`Portrait de ${profile.name}`}
-                className="mb-6 aspect-[4/3] w-full max-w-[26rem] object-cover"
-              />
-            ) : (
-              <div
-                className="mb-6 flex aspect-[4/3] w-full max-w-[26rem] items-end border border-cream/20 bg-cream/5 p-4"
-                role="img"
-                aria-label={`Emplacement pour le portrait de ${profile.name}`}
-              >
-                <span className="text-[10px] uppercase tracking-editorial text-cream/45">
-                  Portrait à venir
-                </span>
-              </div>
-            )}
             <h3 className="text-3xl font-bold tracking-tight2 text-cream">
               {profile.name}
             </h3>
