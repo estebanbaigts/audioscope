@@ -267,7 +267,7 @@ function ContactProfiles() {
         className="mb-10 aspect-[16/7] w-full object-cover"
       />
       <h2 className="text-display-sm font-bold text-balance">
-        Vos contacts
+        Contacts
       </h2>
       <div className="mt-8 grid border-t border-cream/20 md:grid-cols-2">
         {profiles.map((profile) => (
