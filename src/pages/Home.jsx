@@ -55,7 +55,7 @@ export default function Home() {
             custom={2}
             className="mt-12 grid gap-8 border-t border-cream/15 pt-8 md:grid-cols-12"
           >
-            <h1 className="md:col-span-12 text-center text-display-sm font-bold text-balance text-cream">
+            <h1 className="md:col-span-10 md:col-start-2 text-center text-2xl font-medium leading-snug text-balance text-cream/90 sm:text-3xl" style={{ fontFamily: 'Platypi, Georgia, serif' }}>
               Audioscope, niché dans le 15e arrondissement de Paris, est un lieu dédié à la captation sonore haut de gamme. Le studio revendique une approche artisanale du son, où chaque projet trouve sa texture grâce à un équilibre entre analogique et numérique.
             </h1>
           </motion.div>
@@ -71,8 +71,11 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* Soft fade from the dark hero into the sand gallery */}
+      <div aria-hidden="true" className="h-24 bg-gradient-to-b from-coal to-sand sm:h-32" />
+
       {/* ───────────────── STUDIO TOUR ───────────────── */}
-      <section id="studio" className="relative bg-sand pb-28 pt-20 text-coal sm:pb-36 sm:pt-28">
+      <section id="studio" className="relative scroll-mt-24 bg-sand pb-28 pt-8 text-coal sm:pb-36 sm:pt-12">
         <div className="mx-auto max-w-7xl px-[var(--gutter)]">
           <motion.div
             initial={{ opacity: 0, y: 16 }}

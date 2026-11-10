@@ -45,7 +45,7 @@ export default function Nav() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.4, ease: 'easeOut' }}
         className={`fixed inset-x-0 top-0 z-40 text-cream transition-[background,backdrop-filter,border-color] duration-500 ease-smooth ${
-          scrolled ? 'bg-coal/70 backdrop-blur-md border-b border-cream/10' : 'bg-transparent'
+          scrolled ? 'bg-coal/90 backdrop-blur-md border-b border-cream/10' : 'bg-transparent'
         }`}
       >
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 sm:h-20 sm:px-10">

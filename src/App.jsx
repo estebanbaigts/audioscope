@@ -6,12 +6,18 @@ import Home from './pages/Home.jsx'
 import Infos from './pages/Infos.jsx'
 
 export default function App() {
-  // Intro plays on every page load — refresh = re-play.
-  const [ready, setReady] = useState(false)
+  // Intro plays once per browser session, not on every refresh.
+  const [ready, setReady] = useState(() => {
+    try { return sessionStorage.getItem('introSeen') === '1' } catch { return false }
+  })
+  const finishIntro = () => {
+    try { sessionStorage.setItem('introSeen', '1') } catch { /* storage blocked */ }
+    setReady(true)
+  }
 
   return (
     <>
-      {!ready && <LoadingScreen onDone={() => setReady(true)} />}
+      {!ready && <LoadingScreen onDone={finishIntro} />}
       <BrowserRouter>
         <Routes>
           <Route element={<Layout />}>
