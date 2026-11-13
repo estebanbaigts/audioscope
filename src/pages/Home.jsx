@@ -58,7 +58,9 @@ export default function Home() {
             className="mt-12 grid gap-8 border-t border-cream/15 pt-8 md:grid-cols-12"
           >
             <h1 className="md:col-span-10 md:col-start-2 text-center text-2xl font-medium leading-snug text-balance text-cream/90 sm:text-3xl" style={{ fontFamily: 'Platypi, Georgia, serif' }}>
-              Audioscope, niché dans le 15e arrondissement de Paris, est un lieu dédié à la captation sonore haut de gamme. Le studio revendique une approche artisanale du son, où chaque projet trouve sa texture grâce à un équilibre entre analogique et numérique.
+              Audioscope est un lieu dédié à la captation sonore haut de gamme.
+              <br />
+              Nous revendiquons une approche artisanale et authentique du son.
             </h1>
           </motion.div>
         </div>
