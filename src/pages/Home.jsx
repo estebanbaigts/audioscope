@@ -111,10 +111,10 @@ function ImageTile({ scene, index }) {
     2: 'sm:col-span-2 sm:row-span-2',
     3: 'sm:col-span-2 sm:row-span-2',
     4: 'sm:col-span-4 sm:row-span-2',
-    5: 'sm:col-span-2 sm:row-span-2',
-    6: 'sm:col-span-2 sm:row-span-3',
+    5: 'sm:col-span-2 sm:row-span-2 sm:col-start-5 sm:row-start-5',
+    6: 'sm:col-span-4 sm:row-span-2',
     7: 'sm:col-span-2 sm:row-span-3',
-    8: 'sm:col-span-2 sm:row-span-2',
+    8: 'sm:col-span-4 sm:row-span-2 sm:col-start-1 sm:row-start-6',
   }
   const aspect = {
     wide: 'aspect-[16/10]',
