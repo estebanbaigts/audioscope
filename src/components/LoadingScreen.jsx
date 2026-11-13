@@ -22,8 +22,8 @@ export default function LoadingScreen({ onDone }) {
     let holdT
     let doneT
     const start = performance.now()
-    const duration = 1300
-    const holdMs = 200
+    const duration = 1900
+    const holdMs = 320
     const exitMs = 1100
 
     const tick = (t) => {

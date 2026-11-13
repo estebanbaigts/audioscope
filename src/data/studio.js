@@ -8,4 +8,5 @@ export const scenes = [
   { id: 5, image: '/images/Bande.jpg', title: 'La bande', caption: 'Magnétophone analogique · vu-mètres', layout: 'square', position: 'center' },
   { id: 6, image: '/images/Bande2.jpg', title: 'Le magnétophone', caption: 'Bande 1/2 pouce · machines restaurées', layout: 'square', position: 'center' },
   { id: 7, image: '/images/Boss.jpg', title: 'Le maître des lieux', caption: 'Toujours à l’écoute', layout: 'tall', position: 'center' },
+  { id: 8, image: '/images/liveroom2.jpg', title: 'La cabine', caption: 'Live room · prise de son', layout: 'wide', position: 'center' },
 ]

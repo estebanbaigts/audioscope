@@ -18,11 +18,13 @@ export default function Home() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      className="relative isolate overflow-hidden bg-coal"
     >
+      {/* One continuous warm background behind the whole page */}
+      <div className="warm-halo drift" />
+      <div className="grain absolute inset-0" />
       {/* ───────────────── HERO — dark editorial ───────────────── */}
-      <section className="relative isolate flex min-h-screen flex-col justify-end overflow-hidden bg-coal pb-16 pt-32 text-cream sm:pb-24">
-        <div className="warm-halo drift" />
-        <div className="grain absolute inset-0" />
+      <section className="relative flex min-h-screen flex-col justify-end pb-16 pt-32 text-cream sm:pb-24">
 
         <div className="relative mx-auto flex w-full max-w-7xl flex-col px-[var(--gutter)]">
           {/* Eyebrow */}
@@ -71,11 +73,8 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Soft fade from the dark hero into the sand gallery */}
-      <div aria-hidden="true" className="h-24 bg-gradient-to-b from-coal to-sand sm:h-32" />
-
       {/* ───────────────── STUDIO TOUR ───────────────── */}
-      <section id="studio" className="relative scroll-mt-24 bg-sand pb-28 pt-8 text-coal sm:pb-36 sm:pt-12">
+      <section id="studio" className="relative scroll-mt-24 pb-28 pt-20 text-cream sm:pb-36 sm:pt-28">
         <div className="mx-auto max-w-7xl px-[var(--gutter)]">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -85,7 +84,7 @@ export default function Home() {
             className="mb-14 grid gap-6 md:grid-cols-12 md:items-end"
           >
             <div className="md:col-span-7">
-              <h2 className="mt-4 text-display-md font-bold text-balance text-coal">
+              <h2 className="mt-4 text-display-md font-bold text-balance text-cream">
                 Audioscope
                 <br/>
                 <em className="italic font-medium text-clay">Studio analogique.</em>
@@ -113,8 +112,9 @@ function ImageTile({ scene, index }) {
     3: 'sm:col-span-2 sm:row-span-2',
     4: 'sm:col-span-4 sm:row-span-2',
     5: 'sm:col-span-2 sm:row-span-2',
-    6: 'sm:col-span-2 sm:row-span-2',
+    6: 'sm:col-span-2 sm:row-span-3',
     7: 'sm:col-span-2 sm:row-span-3',
+    8: 'sm:col-span-2 sm:row-span-2',
   }
   const aspect = {
     wide: 'aspect-[16/10]',
@@ -138,20 +138,6 @@ function ImageTile({ scene, index }) {
         <StudioImage scene={scene} className="h-full w-full" />
       </motion.div>
 
-      {/* Persistent index tag (top-left) */}
-      <span className="pointer-events-none absolute left-4 top-4 text-[10px] uppercase tracking-editorial text-cream/85">
-        0{scene.id}
-      </span>
-
-      {/* Caption — slides up on hover */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-2 bg-gradient-to-t from-coal/90 via-coal/40 to-transparent px-5 pb-4 pt-12 opacity-0 transition-all duration-500 ease-smooth group-hover:translate-y-0 group-hover:opacity-100">
-        <span className="block text-[10px] uppercase tracking-editorial text-cream/70">
-          {scene.caption}
-        </span>
-        <span className="mt-1 block text-2xl font-bold tracking-tight2 text-cream">
-          {scene.title}
-        </span>
-      </div>
     </motion.li>
   )
 }
